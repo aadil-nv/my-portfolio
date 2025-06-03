@@ -2,7 +2,7 @@
 export default function Skills() {
   return (
     <div>
-        <h1>skills</h1>
+        <h1 className="text-red-700">skills</h1>
     </div>
   )
 }
