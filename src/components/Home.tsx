@@ -59,7 +59,7 @@ export default function Home() {
           height="20" 
           viewBox="0 0 24 24" 
           fill="none" 
-          className="drop-shadow-2xl"
+          className="drop-shadow-sm"
         >
           {/* Arrow Shadow */}
           <path
@@ -93,9 +93,9 @@ export default function Home() {
           className="absolute inset-0 -m-2"
           animate={{
             boxShadow: [
+              "0 0 10px rgba(255, 255, 255, 0.2)",
               "0 0 20px rgba(255, 255, 255, 0.3)",
-              "0 0 40px rgba(255, 255, 255, 0.6)",
-              "0 0 20px rgba(255, 255, 255, 0.3)"
+              "0 0 10px rgba(255, 255, 255, 0.2)"
             ]
           }}
           transition={{ duration: 1.5, repeat: Infinity }}
@@ -269,37 +269,82 @@ export default function Home() {
           whileHover={{ scale: 1.05 }}
           animate={{ 
             textShadow: [
+              "0 0 5px rgba(255, 255, 255, 0.3)",
               "0 0 10px rgba(255, 255, 255, 0.5)",
-              "0 0 20px rgba(255, 255, 255, 0.8)",
-              "0 0 10px rgba(255, 255, 255, 0.5)"
+              "0 0 5px rgba(255, 255, 255, 0.3)"
             ]
           }}
           transition={{ duration: 4, repeat: Infinity }}
         >
-          Hello, I'm👋
+          Hello, I'm 👋
         </motion.h1>
 
-        {/* Name */}
+        {/* Name - Simplified and Standard */}
         <motion.h2 
           variants={itemVariants}
-          className="text-4xl md:text-6xl font-bold mb-6"
-          whileHover={{ scale: 1.02 }}
+          className="text-4xl md:text-6xl font-bold mb-6 text-white"
+          whileHover={{ 
+            scale: 1.02,
+          }}
+          animate={{ 
+            textShadow: [
+              "0 0 10px rgba(255, 255, 255, 0.3)",
+              "0 0 20px rgba(255, 255, 255, 0.5)",
+              "0 0 10px rgba(255, 255, 255, 0.3)"
+            ],
+            scale: [1, 1.01, 1],
+          }}
+          transition={{ 
+            textShadow: { duration: 3, repeat: Infinity },
+            scale: { duration: 4, repeat: Infinity },
+          }}
         >
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-teal-400 bg-clip-text text-transparent">
-            Muhammed Aadil Nv
-          </span>
+          Muhammed Aadil NV
         </motion.h2>
 
-        {/* Position */}
+        {/* Position - Also Simplified */}
         <motion.div variants={itemVariants} className="mb-12">
-          <h3 className="text-2xl md:text-3xl text-gray-300 font-medium mb-4">
+          <motion.h3 
+            className="text-2xl md:text-3xl text-white font-medium mb-4"
+            animate={{ 
+              textShadow: [
+                "0 0 8px rgba(255, 255, 255, 0.2)",
+                "0 0 15px rgba(255, 255, 255, 0.4)",
+                "0 0 8px rgba(255, 255, 255, 0.2)"
+              ],
+              scale: [1, 1.01, 1],
+            }}
+            transition={{ 
+              duration: 3.5, 
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            whileHover={{
+              scale: 1.05,
+              letterSpacing: "0.05em",
+            }}
+          >
             Full Stack Developer
-          </h3>
+          </motion.h3>
           <motion.div 
-            className="w-20 h-0.5 bg-gradient-to-r from-cyan-400 to-teal-400 mx-auto rounded-full"
-            initial={{ width: 0 }}
-            animate={{ width: 80 }}
-            transition={{ delay: 1, duration: 0.8 }}
+            className="w-20 h-0.5 bg-white mx-auto rounded-full"
+            initial={{ width: 0, opacity: 0 }}
+            animate={{ 
+              width: 80, 
+              opacity: 1,
+              boxShadow: [
+                "0 0 10px rgba(255, 255, 255, 0.5)",
+                "0 0 20px rgba(255, 255, 255, 0.8)",
+                "0 0 10px rgba(255, 255, 255, 0.5)"
+              ],
+              scaleX: [1, 1.1, 1],
+            }}
+            transition={{ 
+              width: { delay: 1, duration: 0.8 },
+              opacity: { delay: 1, duration: 0.8 },
+              boxShadow: { duration: 2, repeat: Infinity },
+              scaleX: { duration: 3, repeat: Infinity }
+            }}
           />
         </motion.div>
 
@@ -312,24 +357,85 @@ export default function Home() {
             <motion.a
               key={index}
               href={social.href}
-              className="group relative p-3 rounded-full border border-white/20 hover:border-cyan-400/50 transition-colors duration-300"
+              className="group relative p-3 rounded-full border border-white/20 hover:border-white/50 transition-colors duration-300"
               whileHover={{ 
-                scale: 1.1,
-                backgroundColor: "rgba(6, 182, 212, 0.1)",
-                boxShadow: "0 0 30px rgba(6, 182, 212, 0.3)"
+                scale: 1.2,
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                boxShadow: "0 0 15px rgba(255, 255, 255, 0.3)",
               }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.9 }}
+              animate={{
+                y: [0, -10, 0],
+                boxShadow: [
+                  "0 0 5px rgba(255, 255, 255, 0.1)",
+                  "0 0 10px rgba(255, 255, 255, 0.2)",
+                  "0 0 5px rgba(255, 255, 255, 0.1)"
+                ],
+                borderColor: [
+                  "rgba(255, 255, 255, 0.2)",
+                  "rgba(255, 255, 255, 0.4)",
+                  "rgba(255, 255, 255, 0.2)"
+                ]
+              }}
+              transition={{
+                y: { 
+                  duration: 2 + index * 0.2, 
+                  repeat: Infinity,
+                  delay: index * 0.3,
+                  ease: "easeInOut"
+                },
+                boxShadow: { 
+                  duration: 3, 
+                  repeat: Infinity,
+                  delay: index * 0.2
+                },
+                borderColor: { 
+                  duration: 3, 
+                  repeat: Infinity,
+                  delay: index * 0.2
+                },
+              }}
               aria-label={social.label}
             >
               <social.icon 
                 size={24} 
-                className="text-white group-hover:text-cyan-400 transition-colors duration-300" 
+                                  className="text-white group-hover:text-white transition-all duration-300 drop-shadow-sm" 
               />
               
               {/* Tooltip */}
-              <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+              <motion.div 
+                className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-white/10 backdrop-blur-sm text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-white/20"
+                whileHover={{
+                  scale: 1.1,
+                  y: -2,
+                }}
+              >
                 {social.label}
-              </div>
+              </motion.div>
+
+              {/* Orbital particles around icons */}
+              {[...Array(3)].map((_, particleIndex) => (
+                <motion.div
+                  key={particleIndex}
+                  className="absolute w-1 h-1 bg-white/60 rounded-full"
+                  style={{
+                    left: '50%',
+                    top: '50%',
+                  }}
+                  animate={{
+                    rotate: [0, 360],
+                    x: 25 * Math.cos((particleIndex * Math.PI * 2) / 3),
+                    y: 25 * Math.sin((particleIndex * Math.PI * 2) / 3),
+                    opacity: [0.3, 0.8, 0.3],
+                    scale: [0.5, 1, 0.5],
+                  }}
+                  transition={{
+                    duration: 3 + particleIndex * 0.5,
+                    repeat: Infinity,
+                    delay: particleIndex * 0.2 + index * 0.1,
+                  }}
+                />
+              ))}
             </motion.a>
           ))}
         </motion.div>
