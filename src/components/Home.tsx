@@ -173,7 +173,7 @@ export default function Home() {
           className="text-5xl md:text-7xl font-light text-white mb-4"
           whileHover={{ scale: 1.05 }}
         >
-          Hello, I'm
+          Hello, I'm👋
         </motion.h1>
 
         {/* Name */}
