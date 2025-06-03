@@ -25,16 +25,69 @@ function About() {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center px-4 relative overflow-hidden cursor-none">
       
-      {/* Custom Cursor */}
+      {/* Custom Large Arrow Cursor */}
       <motion.div
-        className="fixed w-3 h-3 bg-white rounded-full pointer-events-none z-50 shadow-2xl shadow-white/50"
+        className="fixed pointer-events-none z-50"
         style={{
-          left: mousePosition.x - 6,
-          top: mousePosition.y - 6,
+          left: mousePosition.x - 20,
+          top: mousePosition.y - 20,
         }}
-        animate={{ scale: [1, 1.5, 1] }}
-        transition={{ duration: 1, repeat: Infinity }}
-      />
+        animate={{ 
+          scale: [1, 1.2, 1],
+          rotate: [0, 5, -5, 0]
+        }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <svg 
+          width="20" 
+          height="20" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          className="drop-shadow-2xl"
+        >
+          {/* Arrow Shadow */}
+          <path
+            d="M2.5 2.5L22.5 12L12.5 14.5L8.5 22.5L2.5 2.5Z"
+            fill="rgba(0,0,0,0.3)"
+            transform="translate(1,1)"
+          />
+          {/* Main Arrow Body */}
+          <path
+            d="M2 2L22 12L12 14L8 22L2 2Z"
+            fill="white"
+            stroke="rgba(255,255,255,0.8)"
+            strokeWidth="0.5"
+          />
+          {/* Arrow Highlight */}
+          <path
+            d="M3 3L20 11L11 13L7.5 19L3 3Z"
+            fill="url(#arrowGradient)"
+          />
+          <defs>
+            <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="rgba(255,255,255,0.9)" />
+              <stop offset="50%" stopColor="rgba(255,255,255,0.7)" />
+              <stop offset="100%" stopColor="rgba(255,255,255,0.5)" />
+            </linearGradient>
+          </defs>
+        </svg>
+        
+        {/* Glowing effect around arrow */}
+        <motion.div
+          className="absolute inset-0 -m-2"
+          animate={{
+            boxShadow: [
+              "0 0 20px rgba(255, 255, 255, 0.3)",
+              "0 0 40px rgba(255, 255, 255, 0.6)",
+              "0 0 20px rgba(255, 255, 255, 0.3)"
+            ]
+          }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          style={{
+            borderRadius: '50%',
+          }}
+        />
+      </motion.div>
 
       {/* Matrix-Style Background */}
       <div className="absolute inset-0">
